@@ -46,7 +46,7 @@ class CustomDataset(Dataset):
         img_path = self.data[idx]   ##THink of modding if required
         img = cv2.imread(img_path)
         img = cv2.resize(img, self.img_dim) ##Should I just return or resize and takecare in transforms
-        img = cv2.GaussianBlur(img, (5,5), 0)
+        img = cv2.GaussianBlur(img, (1,1), 0)
         #class_id = self.class_map[class_name] ##Is this required ??
         img_tensor = torch.from_numpy(img) ##Convert to tensore
         img_tensor = img_tensor.permute(2, 0, 1) ##SWAP channel to adhere to torch
