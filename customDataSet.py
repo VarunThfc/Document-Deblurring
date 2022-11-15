@@ -5,11 +5,20 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 import json
 import random
+from scipy.ndimage import rotate
 
 
 class CustomDataset(Dataset):
-    listOfTransformations = [lambda img, ksize : cv2.GaussianBlur(img,(5,5),0), lambda img, ksize : cv2.medianBlur(img,5), lambda img, ksize : cv2.blur(img,5)]
+    
+    listOfTransformations = [
+        lambda img, ksize : cv2.GaussianBlur(img,(5,5),0), 
+        lambda img, ksize : cv2.medianBlur(img,5), 
+        # lambda img, ksize : cv2.blur(img,5),
+        lambda img, ksize : CustomDataset.motion_blur(img, ksize)
+    ]
+    
     def __init__(self):
+
         self.imgs_path = "./publaynet/" ##Base path
         file_list = glob.glob(self.imgs_path + "*") ##Contents inside Path
         train_json = open('./publaynet/train.json')
@@ -44,9 +53,10 @@ class CustomDataset(Dataset):
         print("fileName", len(validFileNames))
         return validFileNames
     
-    def apply(self,img_to_blur, num):
-        for i in range(0,num):
-            img_to_blur = self.listOfTransformations[i](img_to_blur,5)
+    def random_blur(self,img_to_blur):
+        num = random.randint(1, len(self.listOfTransformations))
+        for transformation in random.sample(self.listOfTransformations, num):
+            img_to_blur = transformation(img_to_blur,5)
         return img_to_blur
         
     def __getitem__(self, idx):
@@ -55,8 +65,7 @@ class CustomDataset(Dataset):
         img_to_blur = cv2.imread(img_path)
         img = cv2.resize(img, self.img_dim) ##Should I just return or resize and takecare in transforms
         img_to_blur = cv2.resize(img, self.img_dim)
-        r1 = random.randint(0, 2)
-        img_to_blur = self.apply(img_to_blur, r1)
+        img_to_blur = self.random_blur(img_to_blur)
         
         img_tensor = torch.from_numpy(img) ##Convert to tensor
         img_to_blur = torch.from_numpy(img_to_blur) ##Convert to tensore
@@ -64,8 +73,13 @@ class CustomDataset(Dataset):
         img_tensor = img_tensor.permute(2, 0, 1) ##SWAP channel to adhere to torch
         img_to_blur = img_to_blur.permute(2, 0, 1) 
         #class_id = torch.tensor([class_id])
-        return img_tensor , img_to_blur
+        return [img_tensor , img_to_blur]
     
-    
-            
+    def motion_blur(img, ksize):
+        kernel = np.zeros((ksize, ksize))
+        kernel[int((ksize-1)/2), :] = np.ones(ksize)
+        kernel = kernel / ksize
+        random_angle = random.randint(0, 180)
+        kernel = rotate(kernel, random_angle)
+        return cv2.filter2D(img, -1, kernel)
         
