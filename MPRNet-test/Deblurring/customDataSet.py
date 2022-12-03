@@ -57,7 +57,7 @@ class CustomDataset(Dataset):
         self.transforms = TF.Compose([TF.RandomVerticalFlip(.3),
                                       TF.RandomHorizontalFlip(.3),
                                       TF.RandomRotation(45,fill=255,interpolation=interpolation),
-                                      TF.RandomResizedCrop(size=self.img_dim,scale=(0.2,0.4),ratio=(0.5,2),interpolation=interpolation)
+                                      TF.RandomResizedCrop(size=self.img_dim,scale=(0.1,0.2),ratio=(0.5,2),interpolation=interpolation)
                                     ])
         
         self.totensor = TF.ToTensor()
