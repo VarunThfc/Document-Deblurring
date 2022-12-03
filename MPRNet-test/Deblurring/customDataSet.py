@@ -62,8 +62,7 @@ class CustomDataset(Dataset):
         self.totensor = TF.ToTensor()
         
         self.listOfBlurs = [
-                        lambda img, ksize : cv2.GaussianBlur(img,(ksize,ksize),cv2.BORDER_DEFAULT), 
-                        lambda img, ksize : cv2.medianBlur(img,ksize if ksize<=3 else 3), 
+                        lambda img, ksize : cv2.GaussianBlur(img,(ksize,ksize),cv2.BORDER_DEFAULT),
                         lambda img, ksize : cv2.blur(img,(ksize,ksize)),
                         lambda img, ksize : motion_blur(img, 2*ksize+1)
                     ]## Reszie dimension experiment
