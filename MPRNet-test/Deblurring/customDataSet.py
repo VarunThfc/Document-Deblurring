@@ -27,6 +27,7 @@ def filter(filename):
 def motion_blur(img, ksize):
     kernel = np.zeros((ksize, ksize))
     kernel[ksize//2, :] = 1
+    kernel = kernel*np.random.rand(ksize,ksize)
     kernel = kernel / np.sum(kernel)
     random_angle = random.randint(0, 180)
     kernel = rotate(kernel, random_angle)
@@ -64,7 +65,7 @@ class CustomDataset(Dataset):
         self.listOfBlurs = [
                         lambda img, ksize : cv2.GaussianBlur(img,(ksize,ksize),cv2.BORDER_DEFAULT),
                         lambda img, ksize : cv2.blur(img,(ksize,ksize)),
-                        lambda img, ksize : motion_blur(img, 2*ksize+np.random.choice([1,-1]))
+                        lambda img, ksize : motion_blur(img, 4*ksize+np.random.choice([1,-1]))
                     ]## Resize dimension experiment
         self.p = [1,1,10]
     
