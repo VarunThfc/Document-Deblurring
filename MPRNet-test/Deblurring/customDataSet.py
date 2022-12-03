@@ -35,13 +35,13 @@ def motion_blur(img, ksize):
 def random_blur(img_to_blur, list_of_blurs):
     pickblur = TF.RandomChoice(list_of_blurs)
     for _ in range(np.random.randint(1,3)):
-        ksize = np.random.randint(1,3)
+        ksize = np.random.randint(2,4)
         img_to_blur = pickblur(img_to_blur,2*ksize-1)
     return img_to_blur
 
 class CustomDataset(Dataset):
     
-    def __init__(self, document_dir, output_dim=(400,400),filter=True):
+    def __init__(self, document_dir, output_dim=(400,400),filter=True, interpolation=TF.InterpolationMode.BICUBIC):
         super(CustomDataset, self).__init__()
 
         self.data = glob.glob(os.path.join(document_dir,"train","*.jpg")) ##Contents inside Path
@@ -53,10 +53,10 @@ class CustomDataset(Dataset):
 
         self.img_dim = output_dim
 
-        self.transforms = TF.Compose([TF.RandomHorizontalFlip(.3),
-                                      TF.RandomVerticalFlip(.3),
-                                      TF.RandomRotation(45,fill=255),
-                                      TF.RandomResizedCrop(size=self.img_dim,scale=(0.1,0.3),ratio=(0.2,5))
+        self.transforms = TF.Compose([TF.RandomVerticalFlip(.3),
+                                      TF.RandomHorizontalFlip(.3),
+                                      TF.RandomRotation(45,fill=255,interpolation=interpolation),
+                                      TF.RandomResizedCrop(size=self.img_dim,scale=(0.2,0.4),ratio=(0.5,2),interpolation=interpolation)
                                     ])
         
         self.totensor = TF.ToTensor()
