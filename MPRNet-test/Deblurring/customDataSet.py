@@ -42,10 +42,10 @@ def random_blur(img_to_blur, list_of_blurs,p=None):
 
 class CustomDataset(Dataset):
     
-    def __init__(self, document_dir, output_dim=(400,400),filter=True, interpolation=TF.InterpolationMode.BICUBIC):
+    def __init__(self, document_dir, output_dim=(400,400),filter=True, interpolation=TF.InterpolationMode.BICUBIC, type="train"):
         super(CustomDataset, self).__init__()
 
-        self.data = glob.glob(os.path.join(document_dir,"train","*.jpg")) ##Contents inside Path
+        self.data = glob.glob(os.path.join(document_dir,type,"*.jpg")) ##Contents inside Path
         train_json = os.path.join(document_dir,"labels","train.json")
         if filter:
             filteredFileSet = filter(train_json)
