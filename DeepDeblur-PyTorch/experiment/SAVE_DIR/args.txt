@@ -1,0 +1,64 @@
+execution at 2022-12-03_01-52-44
+seed: 1670032364
+num_workers: 7
+device_type: cuda
+device_index: 0
+n_GPUs: 1
+distributed: False
+launched: False
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 0
+world_size: 1
+data_root: /home/varun/Research/dataset
+dataset: None
+data_train: 
+data_val: 
+data_test: 
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pretrained: 
+n_scales: 3
+gaussian_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+init_scale: 1024.0
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: False
+do_validate: False
+do_test: False
+demo: True
+demo_input_dir: INPUT_DIR_NAME
+demo_output_dir: OUTPUT_DIR_NAME
+lr: 0.0001
+milestones: [500, 750, 900]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/SAVE_DIR
+start_epoch: 1
+end_epoch: 1000
+load_epoch: 0
+save_every: 10
+save_results: all
+stay: False
+template: 
+

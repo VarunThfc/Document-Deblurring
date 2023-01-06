@@ -1,0 +1,448 @@
+execution at 2020-06-03_10-22-07
+seed: 1591147327
+num_workers: 6
+device_type: cuda
+device_index: 0
+n_GPUs: 4
+distributed: True
+launched: True
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 3
+world_size: 1
+data_root: /home/seungjun/Research/dataset
+dataset: REDS
+data_train: REDS
+data_val: REDS
+data_test: REDS
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pre_trained: .
+n_scales: 3
+gaussain_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+opt_level: O1
+loss_scale: dynamic
+max_loss_scale: 1024
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: True
+do_validate: True
+do_test: False
+demo: False
+demo_input_dir: 
+demo_output_dir: 
+lr: 0.0001
+milestones: [100, 150, 180]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/REDS_L1
+startEpoch: 1
+endEpoch: 200
+save_every: 10
+save_results: part
+stay: False
+
+execution at 2020-06-03_10-22-07
+seed: 1591147327
+num_workers: 6
+device_type: cuda
+device_index: 0
+n_GPUs: 4
+distributed: True
+launched: True
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 1
+world_size: 1
+data_root: /home/seungjun/Research/dataset
+dataset: REDS
+data_train: REDS
+data_val: REDS
+data_test: REDS
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pre_trained: .
+n_scales: 3
+gaussain_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+opt_level: O1
+loss_scale: dynamic
+max_loss_scale: 1024
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: True
+do_validate: True
+do_test: False
+demo: False
+demo_input_dir: 
+demo_output_dir: 
+lr: 0.0001
+milestones: [100, 150, 180]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/REDS_L1
+startEpoch: 1
+endEpoch: 200
+save_every: 10
+save_results: part
+stay: False
+
+execution at 2020-06-03_10-22-07
+seed: 1591147327
+num_workers: 6
+device_type: cuda
+device_index: 0
+n_GPUs: 4
+distributed: True
+launched: True
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 0
+world_size: 1
+data_root: /home/seungjun/Research/dataset
+dataset: REDS
+data_train: REDS
+data_val: REDS
+data_test: REDS
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pre_trained: .
+n_scales: 3
+gaussain_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+opt_level: O1
+loss_scale: dynamic
+max_loss_scale: 1024
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: True
+do_validate: True
+do_test: False
+demo: False
+demo_input_dir: 
+demo_output_dir: 
+lr: 0.0001
+milestones: [100, 150, 180]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/REDS_L1
+startEpoch: 1
+endEpoch: 200
+save_every: 10
+save_results: part
+stay: False
+
+execution at 2020-06-03_10-22-07
+seed: 1591147327
+num_workers: 6
+device_type: cuda
+device_index: 0
+n_GPUs: 4
+distributed: True
+launched: True
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 2
+world_size: 1
+data_root: /home/seungjun/Research/dataset
+dataset: REDS
+data_train: REDS
+data_val: REDS
+data_test: REDS
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pre_trained: .
+n_scales: 3
+gaussain_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+opt_level: O1
+loss_scale: dynamic
+max_loss_scale: 1024
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: True
+do_validate: True
+do_test: False
+demo: False
+demo_input_dir: 
+demo_output_dir: 
+lr: 0.0001
+milestones: [100, 150, 180]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/REDS_L1
+startEpoch: 1
+endEpoch: 200
+save_every: 10
+save_results: part
+stay: False
+
+execution at 2022-12-02_01-07-48
+seed: 1669943268
+num_workers: 7
+device_type: cuda
+device_index: 0
+n_GPUs: 2
+distributed: True
+launched: True
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 0
+world_size: 1
+data_root: /home/kaundinya/Research/dataset
+dataset: None
+data_train: 
+data_val: 
+data_test: 
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pretrained: 
+n_scales: 3
+gaussian_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+init_scale: 1024.0
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: False
+do_validate: False
+do_test: False
+demo: True
+demo_input_dir: /home/kaundinya/Research/dataset/REDS/test/test_blur
+demo_output_dir: OUTPUT_DIR_NAME
+lr: 0.0001
+milestones: [500, 750, 900]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/REDS_L1
+start_epoch: 201
+end_epoch: 1000
+load_epoch: 200
+save_every: 10
+save_results: all
+stay: False
+template: 
+
+execution at 2022-12-02_01-09-06
+seed: 1669943346
+num_workers: 7
+device_type: cuda
+device_index: 0
+n_GPUs: 2
+distributed: True
+launched: True
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 0
+world_size: 1
+data_root: /home/kaundinya/Research/dataset
+dataset: None
+data_train: 
+data_val: 
+data_test: 
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pretrained: 
+n_scales: 3
+gaussian_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+init_scale: 1024.0
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: False
+do_validate: False
+do_test: False
+demo: True
+demo_input_dir: /home/kaundinya/Research/dataset/REDS/test/test_blur
+demo_output_dir: OUTPUT_DIR_NAME
+lr: 0.0001
+milestones: [500, 750, 900]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/REDS_L1
+start_epoch: 201
+end_epoch: 1000
+load_epoch: 200
+save_every: 10
+save_results: all
+stay: False
+template: 
+
+execution at 2022-12-03_02-13-44
+seed: 1670033624
+num_workers: 7
+device_type: cuda
+device_index: 0
+n_GPUs: 1
+distributed: False
+launched: False
+master_addr: 127.0.0.1
+master_port: 8023
+dist_backend: nccl
+init_method: env://
+rank: 0
+world_size: 1
+data_root: /home/varun/Research/dataset
+dataset: None
+data_train: 
+data_val: 
+data_test: 
+blur_key: blur_gamma
+rgb_range: 255
+model: MSResNet
+pretrained: 
+n_scales: 3
+gaussian_pyramid: True
+n_resblocks: 19
+n_feats: 64
+kernel_size: 5
+downsample: Gaussian
+precision: single
+amp: False
+init_scale: 1024.0
+patch_size: 256
+batch_size: 16
+split_batch: 1
+augment: True
+validate_every: 10
+test_every: 10
+do_train: False
+do_validate: False
+do_test: False
+demo: True
+demo_input_dir: /home/varun/Research/dataset/GOPRO_Large/test/GOPR0384_11_00/blur_gamma
+demo_output_dir: 
+lr: 0.0001
+milestones: [500, 750, 900]
+scheduler: step
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+loss: 1*L1
+metric: PSNR,SSIM
+save_dir: ../experiment/REDS_L1
+start_epoch: 201
+end_epoch: 1000
+load_epoch: 200
+save_every: 10
+save_results: all
+stay: False
+template: 
+
